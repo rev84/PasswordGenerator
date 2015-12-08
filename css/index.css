@@ -11,3 +11,10 @@ select.number {
   font-size:		150%;
   text-align:		center;
 }
+.password {
+  border-bottom:solid 1px #333333;
+  margin-bottom:2px;
+}
+.copied {
+  background-color:#98fb98;
+}
