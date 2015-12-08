@@ -35,7 +35,9 @@ initialize = function() {
     val = $.cookie(id) != null ? $.cookie(id) : content[0];
     select.val(val);
     results.push($('#password_copy').zclip({
-      copy: $(this).attr('password'),
+      copy: function() {
+        return $(this).attr('password');
+      },
       path: './js/jquery-zclip/ZeroClipboard.swf',
       afterCopy: function() {}
     }));

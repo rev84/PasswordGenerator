@@ -39,7 +39,8 @@ initialize = ->
     select.val(val)
     # クリップボードにコピー
     $('#password_copy').zclip({
-      copy : $(this).attr('password')
+      copy : ->
+        $(this).attr('password')
       path : './js/jquery-zclip/ZeroClipboard.swf'
       afterCopy : ->
     })
