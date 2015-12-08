@@ -79,7 +79,7 @@ defGenerate = ->
       span = $('<span>')
       span.html(password)
       span.zclip {
-        copy : password
+        copy : span.html()
         path : './js/jquery-zclip/ZeroClipboard.swf'
         afterCopy : ->
           $('.copied').removeClass 'copied'
