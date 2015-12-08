@@ -87,7 +87,7 @@ defGenerate = ->
         )
       )
       window.GLOBAL.CLIPBOARD.destroy() if window.GLOBAL.CLIPBOARD isnt null
-      window.GLOBAL.CLIPBOARD = new Clipboard('passwprd')
+      window.GLOBAL.CLIPBOARD = new Clipboard('.passwprd')
 
   )
 
