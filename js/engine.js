@@ -16,8 +16,7 @@ $().ready(function() {
 });
 
 initialize = function() {
-  var content, id, j, len, results, select, v, val;
-  results = [];
+  var content, id, j, len, select, v, val;
   for (id in CONFIG) {
     content = CONFIG[id];
     select = $('#' + id);
@@ -34,15 +33,14 @@ initialize = function() {
     });
     val = $.cookie(id) != null ? $.cookie(id) : content[0];
     select.val(val);
-    results.push($('#password_copy').zclip({
-      copy: function() {
-        return $(this).attr('password');
-      },
-      path: './js/jquery-zclip/ZeroClipboard.swf',
-      afterCopy: function() {}
-    }));
   }
-  return results;
+  return $('#password_copy').zclip({
+    copy: function() {
+      return $(this).attr('password');
+    },
+    path: './js/jquery-zclip/ZeroClipboard.swf',
+    afterCopy: function() {}
+  });
 };
 
 defGenerate = function() {
@@ -89,12 +87,12 @@ defGenerate = function() {
       resArray.push(allSet[mt_rand(0, allSet.length - 1)]);
     }
     password = shuffle(resArray).join('');
-    return $('#passwords').prepend($('<div>').append($('<span>').html(password)).on('click', function() {
+    return $('#passwords').prepend($('<div>').append($('<span>').html(password).on('click', function() {
       $('#password_copy').attr('password', password);
       $('#password_copy').trigger('click');
       $('.copied').removeClass('copied');
       return $(this).addClass('copied');
-    }));
+    })));
   });
 };
 

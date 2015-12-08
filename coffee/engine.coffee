@@ -37,13 +37,13 @@ initialize = ->
     # クッキーの値を入れる
     val = if $.cookie(id)? then $.cookie(id) else content[0]
     select.val(val)
-    # クリップボードにコピー
-    $('#password_copy').zclip({
-      copy : ->
-        $(this).attr('password')
-      path : './js/jquery-zclip/ZeroClipboard.swf'
-      afterCopy : ->
-    })
+  # クリップボードにコピー
+  $('#password_copy').zclip({
+    copy : ->
+      $(this).attr('password')
+    path : './js/jquery-zclip/ZeroClipboard.swf'
+    afterCopy : ->
+  })
 
 defGenerate = ->
   $('#generate').on(
@@ -85,12 +85,12 @@ defGenerate = ->
       password = shuffle(resArray).join('')
       $('#passwords').prepend(
         $('<div>').append(
-          $('<span>').html(password)
-        ).on 'click', ->
-          $('#password_copy').attr('password', password)
-          $('#password_copy').trigger('click')
-          $('.copied').removeClass('copied')
-          $(this).addClass('copied')
+          $('<span>').html(password).on 'click', ->
+            $('#password_copy').attr('password', password)
+            $('#password_copy').trigger('click')
+            $('.copied').removeClass('copied')
+            $(this).addClass('copied')
+        )
       )
 
   )
