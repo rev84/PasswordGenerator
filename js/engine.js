@@ -36,7 +36,7 @@ initialize = function() {
   }
   return $('#password_copy').zclip({
     copy: function() {
-      return $(this).attr('password');
+      return $('#password_stock').attr('password');
     },
     path: './js/jquery-zclip/ZeroClipboard.swf',
     afterCopy: function() {}
@@ -88,7 +88,7 @@ defGenerate = function() {
     }
     password = shuffle(resArray).join('');
     return $('#passwords').prepend($('<div>').append($('<span>').html(password).on('click', function() {
-      $('#password_copy').attr('password', password);
+      $('#password_stock').attr('password', password);
       $('#password_copy').trigger('click');
       $('.copied').removeClass('copied');
       return $(this).addClass('copied');
