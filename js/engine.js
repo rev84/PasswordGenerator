@@ -35,7 +35,7 @@ initialize = function() {
     val = $.cookie(id) != null ? $.cookie(id) : content[0];
     select.val(val);
     results.push($('#password_copy').zclip({
-      copy: $(this).data('password'),
+      copy: $(this).attr('password'),
       path: './js/jquery-zclip/ZeroClipboard.swf',
       afterCopy: function() {}
     }));
@@ -88,7 +88,7 @@ defGenerate = function() {
     }
     password = shuffle(resArray).join('');
     return $('#passwords').prepend($('<div>').append($('<span>').html(password)).on('click', function() {
-      $('#password_copy').data('password', password);
+      $('#password_copy').attr('password', password);
       $('#password_copy').trigger('click');
       $('.copied').removeClass('copied');
       return $(this).addClass('copied');

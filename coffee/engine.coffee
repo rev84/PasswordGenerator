@@ -39,7 +39,7 @@ initialize = ->
     select.val(val)
     # クリップボードにコピー
     $('#password_copy').zclip({
-      copy : $(this).data('password')
+      copy : $(this).attr('password')
       path : './js/jquery-zclip/ZeroClipboard.swf'
       afterCopy : ->
     })
@@ -86,7 +86,7 @@ defGenerate = ->
         $('<div>').append(
           $('<span>').html(password)
         ).on 'click', ->
-          $('#password_copy').data('password', password)
+          $('#password_copy').attr('password', password)
           $('#password_copy').trigger('click')
           $('.copied').removeClass('copied')
           $(this).addClass('copied')
