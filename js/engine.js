@@ -89,7 +89,7 @@ defGenerate = function() {
         $('.copied').removeClass('copied');
         return $(this).addClass('copied');
       }
-    }));
+    }).zclip("show"));
   });
 };
 

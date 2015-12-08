@@ -85,7 +85,7 @@ defGenerate = ->
           afterCopy : ->
             $('.copied').removeClass 'copied'
             $(this).addClass 'copied'
-        })
+        }).zclip "show"
       )
 
   )
