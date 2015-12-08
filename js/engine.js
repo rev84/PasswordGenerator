@@ -93,7 +93,7 @@ defGenerate = function() {
     if (window.GLOBAL.CLIPBOARD !== null) {
       window.GLOBAL.CLIPBOARD.destroy();
     }
-    return window.GLOBAL.CLIPBOARD = new Clipboard('.passwprd');
+    return window.GLOBAL.CLIPBOARD = new Clipboard('.password');
   });
 };
 
