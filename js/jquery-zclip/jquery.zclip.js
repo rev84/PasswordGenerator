@@ -20,7 +20,7 @@
 
                 var o = jQuery(this);
 
-                if (typeof settings.copy == 'string' || jQuery.isFunction(settings.copy)) {
+                if (o.is(':visible') && (typeof settings.copy == 'string' || jQuery.isFunction(settings.copy))) {
 
                     ZeroClipboard.setMoviePath(settings.path);
                     var clip = new ZeroClipboard.Client();
