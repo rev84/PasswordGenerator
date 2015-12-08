@@ -76,7 +76,8 @@ defGenerate = ->
       resArray.push allSet[mt_rand(0, allSet.length-1)] for i in [0...restNum]
 
       password = shuffle(resArray).join('')
-      span = $('<span>').html(password)
+      span = $('<span>')
+      span.html(password)
       span.zclip {
         copy : password
         path : './js/jquery-zclip/ZeroClipboard.swf'
