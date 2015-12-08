@@ -41,14 +41,6 @@ initialize = ->
     val = if $.cookie(id)? then $.cookie(id) else content[0]
     select.val(val)
 
-  # クリップボードにコピー
-  $('#password_copy').zclip({
-    copy : ->
-      $('#password_stock').attr('password')
-    path : './js/jquery-zclip/ZeroClipboard.swf'
-    afterCopy : ->
-  })
-
 defGenerate = ->
   $('#generate').on(
     'click'

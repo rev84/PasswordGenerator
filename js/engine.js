@@ -18,7 +18,8 @@ $().ready(function() {
 });
 
 initialize = function() {
-  var content, id, j, len, select, v, val;
+  var content, id, j, len, results, select, v, val;
+  results = [];
   for (id in CONFIG) {
     content = CONFIG[id];
     select = $('#' + id);
@@ -34,15 +35,9 @@ initialize = function() {
       });
     });
     val = $.cookie(id) != null ? $.cookie(id) : content[0];
-    select.val(val);
+    results.push(select.val(val));
   }
-  return $('#password_copy').zclip({
-    copy: function() {
-      return $('#password_stock').attr('password');
-    },
-    path: './js/jquery-zclip/ZeroClipboard.swf',
-    afterCopy: function() {}
-  });
+  return results;
 };
 
 defGenerate = function() {
