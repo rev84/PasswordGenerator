@@ -12,6 +12,9 @@ window.CONFIG =
     '_[]()!?@:;,.+-*/'
   ]
 
+window.GLOBAL = 
+  CLIPBOARD = null
+
 $().ready(
   ->
     initialize()
@@ -86,13 +89,13 @@ defGenerate = ->
       password = shuffle(resArray).join('')
       $('#passwords').prepend(
         $('<div>').append(
-          $('<span>').html(password).on 'click', ->
-            $('#password_stock').attr('password', password)
-            $('#password_copy').trigger('click')
+          $('<span>').addClass('password').html(password).attr('data-clipboard-text', password).on 'click', ->
             $('.copied').removeClass('copied')
             $(this).addClass('copied')
         )
       )
+      window.GLOBAL.CLIPBOARD.destroy() if window.GLOBAL.CLIPBOARD isnt null
+      window.GLOBAL.CLIPBOARD = new Clipboard('passwprd')
 
   )
 
