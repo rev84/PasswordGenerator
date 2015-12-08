@@ -23,7 +23,7 @@
                 if (o.is(':visible') && (typeof settings.copy == 'string' || jQuery.isFunction(settings.copy))) {
 
                     ZeroClipboard.setMoviePath(settings.path);
-                    var clip = new ZeroClipboard.Client();
+                    clip = new ZeroClipboard.Client();
 
                     if (jQuery.isFunction(settings.copy)) {
                         o.bind('zClip_copy', settings.copy);
@@ -90,6 +90,8 @@
 
                     jQuery(window).bind('load resize', function () {clip.reposition();});
 
+                    o.zclip_clip = clip
+
                 }
 
             });
@@ -129,6 +131,11 @@
 
         }
 
+    };
+    jQuery.fn.zclipTrigger = function () {
+        if ('zclip_clip' in $(this)) {
+            $(this).zclip_clip.receiveEvent('mouseDown');
+        }
     };
 
 })(jQuery);

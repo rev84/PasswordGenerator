@@ -11,11 +11,12 @@ select.number {
   font-size:		150%;
   text-align:		center;
 }
-/*
+
 #password_copy {
-  display : none;
+  position:fixed;
+  left:-100px;
+  top:-100px;
 }
-*/
 #password_stock {
   display:none;
 }
