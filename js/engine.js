@@ -82,14 +82,14 @@ defGenerate = function() {
       resArray.push(allSet[mt_rand(0, allSet.length - 1)]);
     }
     password = shuffle(resArray).join('');
-    return $('#passwords').prepend($('<div>').append($('<span>').html(password).zclip({
+    return $('#passwords').prepend($('<div>').append($('<span>').html(password)).zclip({
       copy: password,
       path: './js/jquery-zclip/ZeroClipboard.swf',
       afterCopy: function() {
         $('.copied').removeClass('copied');
         return $(this).addClass('copied');
       }
-    })));
+    }));
   });
 };
 
