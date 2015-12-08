@@ -89,9 +89,6 @@
                     clip.glue(o[0], o.parent()[0]);
 
                     jQuery(window).bind('load resize', function () {clip.reposition();});
-
-                    o.zclip_clip = clip
-
                 }
 
             });
@@ -132,10 +129,9 @@
         }
 
     };
-    jQuery.fn.zclipTrigger = function () {
-        if ('zclip_clip' in $(this)) {
-            $(this).zclip_clip.receiveEvent('mouseDown');
-        }
+
+    jQuery.fn.zclipMouseDown = function () {
+        $(this).trigger('mousedown');
     };
 
 })(jQuery);
