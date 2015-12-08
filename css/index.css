@@ -5,9 +5,9 @@ body	{
   text-align:		center;
 }
 select.number {
-  font-size:30px;
+  font-size:    300%;
 }
-.passwordtbody{
-  font-size:		20px;
+.passwords {
+  font-size:		150%;
   text-align:		center;
 }

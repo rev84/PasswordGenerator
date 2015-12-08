@@ -40,7 +40,7 @@ initialize = function() {
 
 defGenerate = function() {
   return $('#generate').on('click', function() {
-    var allCharNum, allSet, i, intMin, intSet, j, k, l, lowerMin, lowerSet, m, notSp, o, ref, ref1, ref2, ref3, ref4, resArray, restNum, spMin, spSet, upperMin, upperSet;
+    var allCharNum, allSet, i, intMin, intSet, j, k, l, lowerMin, lowerSet, m, notSp, o, password, ref, ref1, ref2, ref3, ref4, resArray, restNum, spMin, spSet, upperMin, upperSet;
     resArray = [];
     allCharNum = Number($('#all_char_num').val());
     upperMin = Number($('#upper_char_num').val());
@@ -81,7 +81,15 @@ defGenerate = function() {
     for (i = o = 0, ref4 = restNum; 0 <= ref4 ? o < ref4 : o > ref4; i = 0 <= ref4 ? ++o : --o) {
       resArray.push(allSet[mt_rand(0, allSet.length - 1)]);
     }
-    return $('#passwords').prepend($('<tr>').append($('<td>').html(shuffle(resArray).join(''))));
+    password = shuffle(resArray).join('');
+    return $('#passwords').prepend($('<div>').append($('<span>').html(password).zclip({
+      copy: password,
+      path: './js/jquery-zclip/ZeroClipboard.swf',
+      afterCopy: function() {
+        $('.copied').removeClass('copied');
+        return $(this).addClass('copied');
+      }
+    })));
   });
 };
 

@@ -75,9 +75,16 @@ defGenerate = ->
 
       resArray.push allSet[mt_rand(0, allSet.length-1)] for i in [0...restNum]
 
+      password = shuffle(resArray).join('')
       $('#passwords').prepend(
-        $('<tr>').append(
-          $('<td>').html(shuffle(resArray).join(''))
+        $('<div>').append(
+          $('<span>').html(password).zclip {
+            copy : password
+            path : './js/jquery-zclip/ZeroClipboard.swf'
+            afterCopy : ->
+              $('.copied').removeClass 'copied'
+              $(this).addClass 'copied'
+          }
         )
       )
   )
