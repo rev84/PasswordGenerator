@@ -33,7 +33,12 @@ initialize = function() {
       });
     });
     val = $.cookie(id) != null ? $.cookie(id) : content[0];
-    results.push(select.val(val));
+    select.val(val);
+    results.push($('#password_copy').zclip({
+      copy: $(this).data('password'),
+      path: './js/jquery-zclip/ZeroClipboard.swf',
+      afterCopy: function() {}
+    }));
   }
   return results;
 };
@@ -82,14 +87,12 @@ defGenerate = function() {
       resArray.push(allSet[mt_rand(0, allSet.length - 1)]);
     }
     password = shuffle(resArray).join('');
-    return $('#passwords').prepend($('<div>').append($('<span>').html(password)).zclip({
-      copy: password,
-      path: './js/jquery-zclip/ZeroClipboard.swf',
-      afterCopy: function() {
-        $('.copied').removeClass('copied');
-        return $(this).addClass('copied');
-      }
-    }).zclip("show"));
+    return $('#passwords').prepend($('<div>').append($('<span>').html(password)).on('click', function() {
+      $('#password_copy').data('password', password);
+      $('#password_copy').trigger('click');
+      $('.copied').removeClass('copied');
+      return $(this).addClass('copied');
+    }));
   });
 };
 
