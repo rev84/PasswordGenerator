@@ -13,7 +13,7 @@ window.CONFIG =
   ]
 
 window.GLOBAL = 
-  CLIPBOARD = null
+  CLIPBOARD : null
 
 $().ready(
   ->
